@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(timer.getElapsedTime());
+        // 判定してすぐにシーン遷移するので、1フレームだけ判定する
         if (Input.GetKey(KeyCode.Space))
         {
             Debug.Log("Space");
