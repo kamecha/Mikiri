@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float startTime;
+    public void startTimer()
     {
-        
+        startTime = Time.time;
     }
 
-    // Update is called once per frame
-    void Update()
+    public float getElapsedTime()
     {
-        
+        return Time.time - startTime;
     }
+
 }

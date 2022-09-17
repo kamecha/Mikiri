@@ -348,6 +348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a622094525aefa34893e2b6e2c2ade76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 42056744}
+  player: {fileID: 1627623585}
+  enemy: {fileID: 1825003448}
 --- !u!1 &1627623582
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913e997af3110514fbb3a7e63c1d23d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deltaTime: 0
 --- !u!1 &1825003445
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,3 +546,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef81fbadfe522d74aac4a0d662813058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deltaTime: 0
