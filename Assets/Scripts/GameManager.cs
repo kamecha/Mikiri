@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 enum JudgementState
 {
@@ -29,8 +30,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         timer.startTimer();
-        Debug.Log("Timer started");
         isJudging = true;
+        Debug.Log("Timer started");
     }
 
     JudgementState Judgement(Player player, Enemy enemy)
@@ -63,12 +64,15 @@ public class GameManager : MonoBehaviour
                 {
                     case JudgementState.Win:
                         Debug.Log("Win");
+                        SceneManager.LoadScene("WinScene");
                         break;
                     case JudgementState.Lose:
                         Debug.Log("Lose");
+                        SceneManager.LoadScene("LoseScene");
                         break;
                     case JudgementState.Draw:
                         Debug.Log("Draw");
+                        SceneManager.LoadScene("DrawScene");
                         break;
                 }
             }
@@ -76,6 +80,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.Log("お手つき");
+                SceneManager.LoadScene("TooEarlyScene");
             }
         }
     }
