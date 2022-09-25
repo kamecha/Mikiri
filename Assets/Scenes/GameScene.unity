@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 42056743}
   - component: {fileID: 42056742}
-  - component: {fileID: 42056744}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -208,18 +207,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &42056744
-MonoBehaviour:
+--- !u!1 &431052885
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42056741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b45a9db034e59824d83f704bac1cc359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 431052887}
+  m_Layer: 0
+  m_Name: transition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &431052887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431052885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a622094525aefa34893e2b6e2c2ade76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 42056744}
+  transitionTime: 5
   player: {fileID: 1627623585}
   enemy: {fileID: 1825003448}
 --- !u!1 &1627623582
