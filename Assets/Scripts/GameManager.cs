@@ -13,7 +13,10 @@ enum JudgementState
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    private float transitionTime = 5f;
+    // ゲームSceneが始まってからの経過時間
     private Timer timer;
+    private TransitionToStart transitionToStart;
     [SerializeField]
     private Player player;
     [SerializeField]
@@ -22,14 +25,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timer = new Timer();
+        transitionToStart = new TransitionToStart(timer, transitionTime, 3);
+        timer.startTimer();
         Debug.Log("Start");
         StartCoroutine(startTimer());
     }
     // start timer
     public IEnumerator startTimer()
     {
-        yield return new WaitForSeconds(3f);
-        timer.startTimer();
+        transitionToStart.transitionTime = transitionTime;
+        transitionToStart.divideNumber = 7;
+        yield return new WaitForSeconds(transitionTime);
+        timer.setSignalTime();
         isJudging = true;
         Debug.Log("Timer started");
     }
@@ -53,13 +61,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transitionToStart.Update();
         // 判定してすぐにシーン遷移するので、1フレームだけ判定する
         if (Input.GetKey(KeyCode.Space))
         {
             Debug.Log("Space");
             if (isJudging)
             {
-                player.deltaTime = timer.getElapsedTime();
+                player.deltaTime = timer.getDeltaTime();
                 switch (Judgement(player, enemy))
                 {
                     case JudgementState.Win:
