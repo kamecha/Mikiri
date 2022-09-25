@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Timer
+public class Timer : MonoBehaviour
 {
     // ゲームSceneが始まってからの経過時間
     private float startTime;

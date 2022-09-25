@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class TransitionToStart
+public class TransitionToStart : MonoBehaviour
 {
+    // 時刻表示用UI
+    [SerializeField]
+    private TextMeshProUGUI textMeshProUGUI;
     // ゲーム内時間用のタイマー
+    [SerializeField]
     private Timer timer;
     // ゲームがスタートしてから合図までの時間
     public float transitionTime;
@@ -15,14 +20,7 @@ public class TransitionToStart
     // 現在の分割数をフェードアウトさせるタイミング
     private float fadeOutTimeRatio = 0.7f;
 
-    public TransitionToStart(Timer timer, float transitionTime, int divideNumber)
-    {
-        this.timer = timer;
-        this.transitionTime = transitionTime;
-        this.divideNumber = divideNumber;
-    }
-
-    public void Update()
+    void Update()
     {
         if (dividedPointer > divideNumber || transitionTime == 0)
         {
@@ -36,6 +34,11 @@ public class TransitionToStart
         if (dividedPointer < divideNumber * fadeOutTimeRatio)
         {
             Debug.Log(divideNumber - dividedPointer);
+            textMeshProUGUI.text = ( divideNumber - dividedPointer ).ToString();
+        }
+        else
+        {
+            textMeshProUGUI.text = "...";
         }
     }
 }
